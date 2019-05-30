@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Title</title>
+<meta charset="utf-8">
+<link href="./bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="./kensukekoike.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class='container'>
+
+    <div class="row">
+        <div class='col-md-6'>
+            <canvas id="originalImage" width="500" height="500"></canvas>
+        </div>
+        <div class='col-md-6'>
+            <canvas id="newImage" width="500" height="500"></canvas>
+        </div>
+
+    </div>
+
+    <div class="row slider-wrapper">
+        <div class='col-md-3'>
+            <div class="row">
+                <div class="col-12 minHeight">
+                    <p>Height=<span  id='hText'></span></p>
+                    <input type="range" min="1" max="100" value="10" step="1" class="slider" id="hSlider">
+                </div>
+                <div class="col-12 minHeight">
+                    <p>Width=<span  id='wText'></span> -- Fix to height
+                    <input type="checkbox" id="fixWidth" onclick="fixWidth()" ></p>
+                    <input type="range" min="1" max="100" value="10" step="1" class="slider" id="wSlider">
+                </div>
+            </div>
+        </div>
+        <div class='col-md-3'>
+            <div class='row'>
+                <div class="col-12 minHeight">
+                    <p>Row Stride=<span  id='hstrideText'></span></p>
+                    <input type="range" min="0" max="300" value="0" step="1" class="slider" id="hstrideSlider">
+                </div>
+                <div class="col-12 minHeight">
+                    <p>Column Stride=<span  id='wstrideText'></span>  -- Fix to row stride<input type="checkbox" id="fixWidthStride" onclick="fixWidthStride()" checked></p>
+                    <input type="range" min="0" max="300" value="0" step="1" class="slider" id="wstrideSlider">
+                </div>
+            </div>
+        </div>
+        <div class='col-md-3'>
+            <div class='row'>
+                <div class='col-12 minHeight'>
+                    <p>Columns=<span  id='nText'></span></p>
+                    <input type="range" min="1" max="50" value="10" step="1" class="slider" id="nSlider">
+                </div>
+                <div class='col-12 minHeight'>
+                    <p>Rows=<span  id='mText'></span></p>
+                    <input type="range" min="1" max="50" value="10" step="1" class="slider" id="mSlider">
+                </div>
+            </div>
+        </div>
+        <div class='col-md-3'>
+            <div class="row">
+                <div class='col-12 minHeight'>
+                    <p>X offset=<span  id='x_offsetText'></span> -- <button id='centerX' type='button' onclick='centerX();'>center</button></p>
+                    <input type="range" min="-300" max="300" value="0" step="1" class="slider" id="x_offsetSlider">
+                </div>
+                <div class='col-12 minHeight'>
+                    <p>Y offset=<span  id='y_offsetText'></span> -- <button id='centerY' type='button' onclick='centerY();'>center</button></p>
+                    <input type="range" min="-300" max="300" value="0" step="1" class="slider" id="y_offsetSlider">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <input type="file" id="imageLoader" name="imageLoader"/>
+    <button type='button' onclick='generate();'>Generate</button>
+    <image id="theimage"></image>
+    <span  id="imageObj" style="font-size:40px; color:red;"></span>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://apis.google.com/js/client.js"></script>
+<script type="text/javascript" src="./kensukekoike.js"></script>
+<script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
+
+
+</body>
+</html>
